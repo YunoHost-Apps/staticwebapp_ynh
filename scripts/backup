@@ -32,5 +32,5 @@ DESTDIR="/var/www/$app"
 sudo cp -a "$DESTDIR" ./www
 
 # Copy the conf files
-mkdir -p ./conf
+sudo mkdir -p ./conf
 sudo cp -a "/etc/nginx/conf.d/${domain}.d/${app}.conf" ./conf/nginx.conf
