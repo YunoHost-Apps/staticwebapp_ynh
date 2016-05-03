@@ -1,0 +1,52 @@
+{
+    "name": "Mini Web App",
+    "id": "miniwebapp",
+    "packaging_format": 1,
+    "requirements": {
+        "yunohost": ">> 2.3.12.1"
+    },
+    "description": {
+        "en": "Minimal web application for static files (vhost)",
+        "fr": "Application web minimal for static files (vhost)"
+    },
+    "maintainer": {
+        "name": "opi",
+        "email": "opi@zeropi.net"
+    },
+    "multi_instance": "true",
+    "services": [
+        "nginx"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain for your Webapp",
+                    "fr": "Choisissez un domaine pour votre Webapp"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "ask": {
+                    "en": "Choose a path for your Webapp",
+                    "fr": "Choisissez un chemin pour votre Webapp"
+                },
+                "example": "/site",
+                "default": "/site"
+            },
+            {
+                "name": "is_public",
+                "ask": {
+                    "en": "Is it a public website ?",
+                    "fr": "Est-ce un site public ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "Yes"
+            }
+        ]
+    }
+}
