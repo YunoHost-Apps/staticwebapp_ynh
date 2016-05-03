@@ -41,9 +41,8 @@ sudo chmod 775 -R $document_root
 sudo chown -hR www-data:www-data $document_root
 
 # Nginx configuration
-sed -i "s@LOCATIONTOCHANGE@$location@g" ../conf/nginx.conf
-sed -i "s@ALIASTOCHANGE@$document_root/@g" ../conf/nginx.conf
-
+sed -i "s@LOCATION_TO_CHANGE@$location@g" ../conf/nginx.conf
+sed -i "s@ALIAS_TO_CHANGE@$document_root/@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Make app public if necessary
