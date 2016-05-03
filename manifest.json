@@ -1,6 +1,6 @@
 {
-    "name": "Mini Web App",
-    "id": "miniwebapp",
+    "name": "Static Web App",
+    "id": "staticwebapp",
     "packaging_format": 1,
     "requirements": {
         "yunohost": ">> 2.3.12.1"

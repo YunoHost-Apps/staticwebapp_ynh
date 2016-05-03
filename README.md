@@ -1,3 +1,3 @@
-# Minimal Web App
+# Static Web App
 
-Just create a vhost and serve static files.
+Just create a vhost and serve static files. Nothing more.
