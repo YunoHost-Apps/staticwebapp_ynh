@@ -40,6 +40,10 @@ fi
 document_root=/var/www/$app
 sudo mkdir -p $document_root
 
+# Copy placeholder index
+sed -i "s@NAME_TO_CHANGE@$app/@g" ../sources/index.html
+sudo cp -a ../sources/index.html $document_root
+
 # Set permissions
 sudo chmod 775 -R $document_root
 sudo chown -hR www-data:www-data $document_root
