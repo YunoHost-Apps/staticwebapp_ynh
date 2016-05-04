@@ -20,8 +20,6 @@ app=$YNH_APP_INSTANCE_NAME
 
 # Retrieve arguments
 domain=$(sudo yunohost app setting $app domain)
-path=$(sudo yunohost app setting $app path)
-is_public=$(sudo yunohost app setting $app is_public)
 
 # Backup directory location for the app from where the script is executed and 
 # which will be compressed afterward
