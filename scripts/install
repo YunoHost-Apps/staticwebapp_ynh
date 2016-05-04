@@ -34,8 +34,8 @@ document_root=/var/www/$app
 sudo mkdir -p $document_root
 
 # Copy placeholder index
-sed -i "s@NAME_TO_CHANGE@$app/@g" ../sources/index.html
-sed -i "s@DOCUMENT_ROOT_TO_CHANGE@$document_root/@g" ../sources/index.html
+sed -i "s@YNH_APP_NAME@$app/@g" ../sources/index.html
+sed -i "s@YNH_DOCUMENT_ROOT@$document_root/@g" ../sources/index.html
 sudo cp -a ../sources/index.html $document_root
 
 # Set permissions
@@ -43,8 +43,8 @@ sudo chmod 775 -R $document_root
 sudo chown -hR www-data:www-data $document_root
 
 # Nginx configuration
-sed -i "s@LOCATION_TO_CHANGE@$location@g" ../conf/nginx.conf
-sed -i "s@ALIAS_TO_CHANGE@$document_root/@g" ../conf/nginx.conf
+sed -i "s@YNH_LOCATION@$location@g" ../conf/nginx.conf
+sed -i "s@YNH_DOCUMENT_ROOT@$document_root/@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Make app public if necessary
