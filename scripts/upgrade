@@ -20,17 +20,10 @@ domain=$(sudo yunohost app setting $app domain)
 path=$(sudo yunohost app setting $app path)
 is_public=$(sudo yunohost app setting $app is_public)
 
-# Path need a trailing slash, and location does not.
-# See conf/nginx.conf usage
-location=$path
-if [[ ! $path == */ ]]; then
-    # no trailing slash, so add it
-    path=$path/
-fi
-if [[ ! "$location" == "/" ]]; then
-    # remove possible trailing slash
-    location=${location%/}
-fi
+# Remove trailing slash to path
+path=${path%/}
+#force location to be / or /foo
+location=${path:-/}
 
 # Document root
 document_root=/var/www/$app

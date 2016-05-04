@@ -27,6 +27,9 @@ is_public=$(sudo yunohost app setting $app is_public)
 # which will be compressed afterward
 backup_dir=$YNH_APP_BACKUP_DIR
 
+# Remove trailing slash to path
+path=${path%/}
+
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a $app \
   || die "The path ${domain}${path} is not available for app installation."
