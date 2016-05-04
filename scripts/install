@@ -33,8 +33,10 @@ sudo yunohost app checkurl $domain$path -a $app \
 document_root=/var/www/$app
 sudo mkdir -p $document_root
 
-# Copy placeholder index
-sed -i "s@YNH_APP_NAME@$app/@g" ../sources/index.html
+# Create placeholder index
+label=$(sudo yunohost app setting $app label)
+if [[ ! "$label" ]]; then label=$app; fi
+sed -i "s@YNH_APP_NAME@$label@g" ../sources/index.html
 sed -i "s@YNH_DOCUMENT_ROOT@$document_root/@g" ../sources/index.html
 sudo cp -a ../sources/index.html $document_root
 
