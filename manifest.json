@@ -40,12 +40,12 @@
             },
             {
                 "name": "is_public",
+                "type": "boolean",
                 "ask": {
                     "en": "Is it a public website ?",
                     "fr": "Est-ce un site public ?"
                 },
-                "choices": ["Yes", "No"],
-                "default": "Yes"
+                "default": true
             }
         ]
     }

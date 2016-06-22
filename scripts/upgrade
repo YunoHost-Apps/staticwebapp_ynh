@@ -20,6 +20,13 @@ domain=$(sudo yunohost app setting $app domain)
 path=$(sudo yunohost app setting $app path)
 is_public=$(sudo yunohost app setting $app is_public)
 
+# is_public is now a boolean field
+if [ "$is_public" = "Yes" ];
+then
+    is_public=1
+fi
+
+
 # Remove trailing slash to path
 path=${path%/}
 #force location to be / or /foo
@@ -40,7 +47,7 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Make app public if necessary
 sudo yunohost app setting $app is_public -v "$is_public"
-if [ "$is_public" = "Yes" ];
+if [[ "$is_public" -ne 0 ]];
 then
     sudo yunohost app setting $app unprotected_uris -v "/"
 fi
