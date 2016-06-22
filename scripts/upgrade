@@ -15,17 +15,19 @@ set -e
 # db names, ...
 app=$YNH_APP_INSTANCE_NAME
 
+# Source app helpers
+. /usr/share/yunohost/helpers
+
 # Retrieve arguments
-domain=$(sudo yunohost app setting $app domain)
-path=$(sudo yunohost app setting $app path)
-is_public=$(sudo yunohost app setting $app is_public)
+domain=$(ynh_app_setting_get "$app" domain)
+path=$(ynh_app_setting_get "$app" path)
+is_public=$(ynh_app_setting_get "$app" is_public)
 
 # is_public is now a boolean field
 if [ "$is_public" = "Yes" ];
 then
     is_public=1
 fi
-
 
 # Remove trailing slash to path
 path=${path%/}

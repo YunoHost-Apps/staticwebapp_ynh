@@ -15,8 +15,11 @@ set -e
 # db names, ...
 app=$YNH_APP_INSTANCE_NAME
 
+# Source app helpers
+. /usr/share/yunohost/helpers
+
 # Retrieve arguments
-domain=$(sudo yunohost app setting $app domain)
+domain=$(ynh_app_setting_get "$app" domain)
 
 # Remove sources
 sudo rm -rf /var/www/$app

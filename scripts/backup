@@ -19,11 +19,9 @@ set -e
 app=$YNH_APP_INSTANCE_NAME
 
 # Retrieve arguments
-domain=$(sudo yunohost app setting $app domain)
-
-# Backup directory location for the app from where the script is executed and 
-# which will be compressed afterward
-backup_dir=$YNH_APP_BACKUP_DIR
+domain=$(ynh_app_setting_get "$app" domain)
+path=$(ynh_app_setting_get "$app" path)
+is_public=$(ynh_app_setting_get "$app" is_public)
 
 # Copy the app source files
 DESTDIR="/var/www/$app"
