@@ -27,5 +27,4 @@ is_public=$(ynh_app_setting_get "$app" is_public)
 ynh_backup "/var/www/$app" "www"
 
 # Copy the conf files
-sudo mkdir -p ./conf
-sudo cp -a "/etc/nginx/conf.d/${domain}.d/${app}.conf" ./conf/nginx.conf
+ynh_backup "/etc/nginx/conf.d/${domain}.d/${app}.conf" "conf/nginx.conf"
