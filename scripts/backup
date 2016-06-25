@@ -24,8 +24,7 @@ path=$(ynh_app_setting_get "$app" path)
 is_public=$(ynh_app_setting_get "$app" is_public)
 
 # Copy the app source files
-DESTDIR="/var/www/$app"
-sudo cp -a "$DESTDIR" ./www
+ynh_backup "/var/www/$app" "www"
 
 # Copy the conf files
 sudo mkdir -p ./conf
